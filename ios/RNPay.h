@@ -8,6 +8,7 @@
 
 #include "WXApi.h"
 #import "WXApiManager.h"
+#include "Alipay.h"
 
 @interface RNPay : RCTEventEmitter <RCTBridgeModule>
 + (void) sendAlipayResult:(NSDictionary *)resultDic;
