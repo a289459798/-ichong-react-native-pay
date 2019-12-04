@@ -1,13 +1,13 @@
 
+package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+
 Pod::Spec.new do |s|
   s.name         = "RNPay"
-  s.version      = "1.0.0"
-  s.summary      = "RNPay"
-  s.description  = <<-DESC
-                  RNPay
-                   DESC
-  s.homepage     = ""
-  s.license      = "MIT"
+  s.version      = package["version"]
+  s.summary      = package['description']
+  s.author       = package['author']
+  s.homepage     = package['homepage']
+  s.license      = package['license']
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "zhangzy@5ichong.com" }
   s.platform     = :ios, "9.0"
