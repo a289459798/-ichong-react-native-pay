@@ -6,6 +6,6 @@
 #endif
 
 @interface RNPay : NSObject <RCTBridgeModule>
-
++ (void) sendAlipayResult:(NSDictionary *)resultDic;
 @end
   
