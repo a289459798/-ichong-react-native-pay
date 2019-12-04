@@ -15,10 +15,21 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://gitee.com/petdoctor/react-native-pay.git", :tag => "master" }
   s.source_files  = "ios/*.{h,m}"
   s.requires_arc = true
-
+  s.ios.vendored_frameworks = 'ios/Assets/AlipaySDK.framework'
+  s.ios.vendored_libraries = 'ios/Assets/*.a'
 
   s.dependency "React"
   s.dependency "WechatOpenSDK"
 
+  s.subspec 'openssl' do |openssl|
+    openssl.source_files = 'ios/openssl/**/*'
+    openssl.public_header_files = 'ios/openssl/**/*.h'
+
+  end
+
+  s.subspec 'alipay' do |alipay|
+    alipay.source_files = 'ios/alipay/**/*'
+    alipay.public_header_files = 'ios/alipay/**/*.h'
+  end
 end
 

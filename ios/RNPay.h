@@ -4,8 +4,12 @@
 #else
 #import <React/RCTBridgeModule.h>
 #endif
+#import <React/RCTEventEmitter.h>
 
-@interface RNPay : NSObject <RCTBridgeModule>
+#include "WXApi.h"
+#import "WXApiManager.h"
+
+@interface RNPay : RCTEventEmitter <RCTBridgeModule>
 + (void) sendAlipayResult:(NSDictionary *)resultDic;
 @end
   

@@ -1,6 +1,27 @@
+import {NativeModules, NativeEventEmitter} from 'react-native';
 
-import { NativeModules } from 'react-native';
+const {RNPay} = NativeModules;
 
-const { RNPay } = NativeModules;
+class Pay extends NativeEventEmitter {
 
-export default RNPay;
+    // 构造
+    constructor(props) {
+        super(RNPay);
+        // 初始状态
+        this.state = {};
+    }
+
+    alipay(info) {
+
+        RNPay.alipay(info);
+    }
+
+    wxpay(info) {
+
+        RNPay.wxpay(info);
+    }
+
+}
+
+Pay = new Pay();
+module.exports = Pay;
