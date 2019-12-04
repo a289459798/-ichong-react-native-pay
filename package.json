@@ -1,8 +1,7 @@
-
 {
   "name": "@ichong/react-native-pay",
   "version": "1.0.0",
-  "description": "",
+  "description": "react-native, wechat, alipay",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,8 +10,14 @@
     "react-native"
   ],
   "author": "zhangzy",
-  "license": "",
+  "license": "ISC",
   "peerDependencies": {
     "react-native": "^0.61.5"
+  },
+  "deprecated": false,
+  "homepage": "https://gitee.com/petdoctor/react-native-pay.git#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/petdoctor/react-native-pay.git"
   }
 }
