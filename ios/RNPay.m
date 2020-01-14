@@ -22,7 +22,7 @@ RCT_EXPORT_METHOD(alipay:(NSDictionary *)info) {
     order.notifyURL =  [info objectForKey:@"notify_url"]; //回调URL
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [Alipay pay:@"CloudAlipay" Order:order success:^(id responseObject) {
+        [Alipay pay:[info objectForKey:@"schemes"] Order:order success:^(id responseObject) {
 
             [self sendEventWithName:@"pay_ok" body:responseObject];
         } failure:^(NSString *error) {
@@ -41,9 +41,10 @@ RCT_EXPORT_METHOD(wxpay:(NSDictionary *)info) {
     req.timeStamp           = [[info objectForKey:@"timestamp"] intValue];
     req.package             = [info objectForKey:@"packageValue"];
     req.sign                = [info objectForKey:@"sign"];
+
     dispatch_async(dispatch_get_main_queue(), ^{
         [WXApi sendReq:req completion:^(BOOL success) {
-            
+            NSLog(@"success:%d", success);
         }];
     });
 }
