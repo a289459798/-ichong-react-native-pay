@@ -17,6 +17,12 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
 }
 
 repositories {
