@@ -45,11 +45,13 @@
             [_delegate managerDidRecvAddCardResponse:addCardResp];
         }
     } else if([resp isKindOfClass:[PayResp class]]){
-      
+
         [[NSNotificationCenter defaultCenter] postNotificationName:WXPAY_NOTIFITION_RESULT object:resp];
-      
-      
-    }
+    } else if([resp isKindOfClass:[WXLaunchMiniProgramResp class]]){
+
+         resp.errCode = [((WXLaunchMiniProgramResp *)resp).extMsg intValue];
+         [[NSNotificationCenter defaultCenter] postNotificationName:WXPAY_NOTIFITION_RESULT object:resp];
+     }
 
 }
 
