@@ -1,6 +1,6 @@
 {
   "name": "@ichong/react-native-pay",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "react-native, wechat, alipay",
   "main": "index.js",
   "scripts": {
