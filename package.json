@@ -2,7 +2,7 @@
   "name": "@attacks/react-native-pay",
   "version": "2.0.0",
   "description": "react-native, wechat, alipay",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
