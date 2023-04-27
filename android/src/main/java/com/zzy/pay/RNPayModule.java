@@ -61,6 +61,16 @@ public class RNPayModule extends ReactContextBaseJavaModule implements IPetPayCa
         PetPay.pay(wxInfo, getCurrentActivity(), this);
     }
 
+    @ReactMethod
+    public void addListener(String eventName) {
+
+    }
+
+    @ReactMethod
+    public void removeListeners(Integer count) {
+
+    }
+
     @Override
     public void payError(int errno, String error) {
 
