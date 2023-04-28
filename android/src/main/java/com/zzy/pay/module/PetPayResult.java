@@ -3,6 +3,8 @@ package com.zzy.pay.module;
 
 import com.zzy.pay.module.alipay.AlipayResult;
 
+import java.util.Map;
+
 /**
  * @Description 解析充值返回数据
  * @author zzy
@@ -11,7 +13,7 @@ import com.zzy.pay.module.alipay.AlipayResult;
  */
 
 public class PetPayResult {
-	public static Object result(AlipayResult payResult, String result) {
+	public static Object result(AlipayResult payResult, Map<String, String> result) {
 		return payResult.getResult(result);
 	}
 }

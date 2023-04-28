@@ -7,6 +7,9 @@ import com.zzy.pay.module.BasePetPay;
 import com.zzy.pay.module.PetPayResult;
 import com.zzy.pay.module.listener.IPetPay;
 import com.zzy.pay.module.utils.PayCode;
+
+import java.util.Map;
+
 import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
@@ -39,7 +42,7 @@ public class Alipay extends BasePetPay implements IPetPay {
 
                 PayTask alipay = new PayTask(Alipay.this.mActivity);
 
-                String result = alipay.pay(Alipay.this.mInfo, true);
+                Map<String, String> result = alipay.payV2(Alipay.this.mInfo, true);
 
                 AlipayResult rs = (AlipayResult) PetPayResult.result(new AlipayResult(), result);
 

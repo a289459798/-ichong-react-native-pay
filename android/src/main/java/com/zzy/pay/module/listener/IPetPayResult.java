@@ -1,5 +1,7 @@
 package com.zzy.pay.module.listener;
 
+import java.util.Map;
+
 /**
  * @Description 支付结果处理
  * @author zzy
@@ -8,5 +10,5 @@ package com.zzy.pay.module.listener;
  */
 
 public interface IPetPayResult {
-	Object getResult(String result);
+	Object getResult(Map<String, String> result);
 }

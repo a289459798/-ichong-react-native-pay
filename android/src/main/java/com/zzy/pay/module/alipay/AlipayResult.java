@@ -1,11 +1,15 @@
 package com.zzy.pay.module.alipay;
 
 
+import android.text.TextUtils;
+
 import com.zzy.pay.module.listener.IPetPayResult;
+
+import java.util.Map;
 
 public class AlipayResult implements IPetPayResult {
 
-	private String mResult;
+	private Map<String, String> mResult;
 
 	String resultStatus;
 	String memo;
@@ -13,7 +17,7 @@ public class AlipayResult implements IPetPayResult {
 	boolean isSignOk;
 
 	@Override
-	public Object getResult(String result) {
+	public Object getResult(Map<String, String> result) {
 		this.mResult = result;
 		return this.parseResult();
 	}
@@ -21,16 +25,13 @@ public class AlipayResult implements IPetPayResult {
 	private AlipayResult parseResult() {
 		try {
 
-			String[] resultParams = this.mResult.split(";");
-			for (String resultParam : resultParams) {
-				if (resultParam.startsWith("resultStatus")) {
-					this.resultStatus = this.gatValue(resultParam, "resultStatus");
-				}
-				if (resultParam.startsWith("result")) {
-					this.result = this.gatValue(resultParam, "result");
-				}
-				if (resultParam.startsWith("memo")) {
-					this.memo = this.gatValue(resultParam, "memo");
+			for (String key : this.mResult.keySet()) {
+				if (TextUtils.equals(key, "resultStatus")) {
+					resultStatus = this.mResult.get(key);
+				} else if (TextUtils.equals(key, "result")) {
+					result = this.mResult.get(key);
+				} else if (TextUtils.equals(key, "memo")) {
+					memo = this.mResult.get(key);
 				}
 			}
 
