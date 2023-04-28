@@ -7,7 +7,6 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.zzy.pay.module.PetPay;
-import com.zzy.pay.module.alipay.AlipayInfo;
 import com.zzy.pay.module.listener.IPetPayCallback;
 import com.zzy.pay.module.weixin.WXpayInfo;
 
@@ -28,20 +27,9 @@ public class RNPayModule extends ReactContextBaseJavaModule implements IPetPayCa
     }
 
     @ReactMethod
-    public void alipay(final ReadableMap info) {
+    public void alipay(final String info) {
 
-        AlipayInfo alipayInfo = new AlipayInfo();
-        alipayInfo.setPartner(info.getString("partner"));
-        alipayInfo.setPrivate_key(info.getString("private_key"));
-        alipayInfo.setPublic_key(info.getString("public_key"));
-        alipayInfo.setBody(info.getString("body"));
-        alipayInfo.setSeller_id(info.getString("seller_id"));
-        alipayInfo.setOut_trade_no(info.getString("out_trade_no"));
-        alipayInfo.setSubject(info.getString("subject"));
-        alipayInfo.setTotal_fee((float) info.getDouble("total_fee"));
-        alipayInfo.setNotify_url(info.getString("notify_url"));
-
-        PetPay.pay(alipayInfo, getCurrentActivity(), this);
+        PetPay.pay(info, getCurrentActivity(), this);
     }
 
 

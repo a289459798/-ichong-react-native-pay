@@ -22,9 +22,9 @@ import rx.schedulers.Schedulers;
 public class Alipay extends BasePetPay implements IPetPay {
 
     private final Activity mActivity;
-    private final IAlipayInfo mInfo;
+    private final String mInfo;
 
-    public Alipay(Activity activity, IAlipayInfo info) {
+    public Alipay(Activity activity, String info) {
         this.mActivity = activity;
         this.mInfo = info;
     }
@@ -39,9 +39,7 @@ public class Alipay extends BasePetPay implements IPetPay {
 
                 PayTask alipay = new PayTask(Alipay.this.mActivity);
 
-                System.out.println("data:" + Alipay.this.mInfo.getInfo());
-
-                String result = alipay.pay((String) Alipay.this.mInfo.getInfo(), true);
+                String result = alipay.pay(Alipay.this.mInfo, true);
 
                 AlipayResult rs = (AlipayResult) PetPayResult.result(new AlipayResult(), result);
 

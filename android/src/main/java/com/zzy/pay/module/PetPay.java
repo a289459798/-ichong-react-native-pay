@@ -2,7 +2,6 @@ package com.zzy.pay.module;
 
 import android.app.Activity;
 import com.zzy.pay.module.alipay.Alipay;
-import com.zzy.pay.module.alipay.AlipayInfo;
 import com.zzy.pay.module.listener.IPetPay;
 import com.zzy.pay.module.listener.IPetPayCallback;
 import com.zzy.pay.module.weixin.WXpay;
@@ -20,10 +19,10 @@ public class PetPay {
 	public static void pay(Object payInfo, Activity activity, IPetPayCallback pay) {
 		if (payInfo != null) {
 			IPetPay zfPay = null;
-			if (payInfo instanceof AlipayInfo) {
-				zfPay = new Alipay(activity, (AlipayInfo) payInfo);
-			} else if (payInfo instanceof WXpayInfo) {
+			if (payInfo instanceof WXpayInfo) {
 				zfPay = new WXpay(activity, (WXpayInfo) payInfo);
+			} else {
+				zfPay = new Alipay(activity, (String) payInfo);
 			}
 
 			if (zfPay != null) {
