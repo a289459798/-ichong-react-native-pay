@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.ios.vendored_libraries = 'ios/Assets/*.a'
 
   s.dependency "React"
-  s.dependency "WechatOpenSDK"
+  s.dependency "WechatOpenSDK", '1.8.7.1'
   s.dependency "AlipaySDK-iOS"
 
   s.subspec 'openssl' do |openssl|
