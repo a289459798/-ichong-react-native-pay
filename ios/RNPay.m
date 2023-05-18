@@ -9,20 +9,10 @@
 }
 RCT_EXPORT_MODULE()
 
-RCT_EXPORT_METHOD(alipay:(NSDictionary *)info) {
+RCT_EXPORT_METHOD(alipay:(NSString *)scheme Info:(NSString *)info) {
     
-    Order *order = [[Order alloc] init];
-    order.privateKey =  [info objectForKey:@"private_key"];
-    order.partner = [info objectForKey:@"partner"];
-    order.sellerID = [info objectForKey:@"seller_id"];
-    order.outTradeNO = [info objectForKey:@"out_trade_no"]; //订单ID（由商家自行制定）
-    order.subject = [info objectForKey:@"subject"]; //商品标题
-    order.body = [info objectForKey:@"body"]; //商品描述
-    order.totalFee = [info objectForKey:@"total_fee"]; //商品价格
-    order.notifyURL =  [info objectForKey:@"notify_url"]; //回调URL
-
     dispatch_async(dispatch_get_main_queue(), ^{
-        [Alipay pay:[info objectForKey:@"schemes"] Order:order success:^(id responseObject) {
+        [Alipay payOfStr:scheme OrderStr:info success:^(id responseObject) {
 
             [self sendEventWithName:@"pay_ok" body:responseObject];
         } failure:^(NSString *error) {
