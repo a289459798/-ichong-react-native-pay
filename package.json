@@ -11,9 +11,6 @@
   ],
   "author": "zhangzy",
   "license": "ISC",
-  "peerDependencies": {
-    "react-native": "^0.71.0"
-  },
   "deprecated": false,
   "homepage": "https://github.com/a289459798/-ichong-react-native-pay.git#readme",
   "repository": {
