@@ -1,5 +1,6 @@
-import { type } from 'os';
+import {type} from 'os';
 import {NativeModules, NativeEventEmitter, Platform} from 'react-native';
+
 const {RNPay} = NativeModules;
 
 
@@ -11,6 +12,7 @@ type WePayProps = {
     prepayId: string;
     timestamp: number;
     sign: string;
+    extData: any;
 }
 
 class Pay extends NativeEventEmitter {
@@ -21,7 +23,7 @@ class Pay extends NativeEventEmitter {
     }
 
     alipay(info: string, scheme?: string) {
-        if(Platform.OS == 'android') {
+        if (Platform.OS == 'android') {
             RNPay.alipay(info);
         } else {
             RNPay.alipay(scheme, info);
